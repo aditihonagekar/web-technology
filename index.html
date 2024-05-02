@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fade Animations with jQuery</title>
+    <style>
+      #box {
+        background-color: #ff6347; /* A light red color */
+        padding: 50px;
+        text-align: center;
+        width: 300px;
+        height: 100px;
+        display: none; /* Initially hidden */
+      }
+    </style>
+  </head>
+  <body>
+    <button id="fadeInBtn">Fade In</button>
+    <button id="fadeOutBtn">Fade Out</button>
+
+    <div id="box">Fading Content!</div>
+
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Fade In content
+        $("#fadeInBtn").click(function () {
+          $("#box").fadeIn("slow");
+        });
+
+        // Fade Out content
+        $("#fadeOutBtn").click(function () {
+          $("#box").fadeOut("slow");
+        });
+      });
+    </script>
+  </body>
+</html>

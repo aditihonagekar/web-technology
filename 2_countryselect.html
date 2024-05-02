@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Capitals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        select {
+            width: 100%;
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+        #capital {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select a Country:</h2>
+        <select id="countrySelect" onchange="displayCapital()">
+            <option value="0">Select a country</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="Japan">Japan</option>
+        </select>
+        <p>Capital: <span id="capital"></span></p>
+    </div>
+
+    <script>
+        function displayCapital() {
+            var select = document.getElementById("countrySelect");
+            var capitalSpan = document.getElementById("capital");
+            var selectedCountry = select.options[select.selectedIndex].value;
+            var capital = "";
+
+            switch (selectedCountry) {
+                case "USA":
+                    capital = "Washington, D.C.";
+                    break;
+                case "UK":
+                    capital = "London";
+                    break;
+                case "France":
+                    capital = "Paris";
+                    break;
+                case "Germany":
+                    capital = "Berlin";
+                    break;
+                case "Japan":
+                    capital = "Tokyo";
+                    break;
+                default:
+                    capital = "";
+            }
+
+            capitalSpan.textContent = capital;
+        }
+    </script>
+</body>
+</html>

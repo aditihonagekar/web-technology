@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Admission Form</title>
+<style>
+    .error { color: red; }
+</style>
+</head>
+<body>
+
+<h2>Patient Admission Form</h2>
+<form id="admissionForm" onsubmit="return validateForm()">
+    <label for="fullName">Full Name:</label><br>
+    <input type="text" id="fullName" name="fullName" required><br><br>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" required><br><br>
+
+    <label for="mobileNumber">Mobile Number:</label><br>
+    <input type="text" id="mobileNumber" name="mobileNumber" required><br>
+    <span id="mobileNumberError" class="error"></span><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+function validateForm() {
+    var fullName = document.getElementById("fullName").value;
+    var age = document.getElementById("age").value;
+    var mobileNumber = document.getElementById("mobileNumber").value;
+
+    var isValid = true;
+    var mobileNumberPattern = /^\d{10}$/; // regex pattern for 10-digit mobile number
+
+    // Check if mobile number is valid
+    if (!mobileNumberPattern.test(mobileNumber)) {
+        document.getElementById("mobileNumberError").innerHTML = "Please enter a valid 10-digit mobile number";
+        isValid = false;
+    } else {
+        document.getElementById("mobileNumberError").innerHTML = "";
+    }
+
+    return isValid;
+}
+</script>
+
+</body>
+</html>
